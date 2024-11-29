@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_text">Hello it's Landscape in Spanish</string>
+    <color name="msg_color">#E91E63</color>
+    <color name="back_color">#FF33A1</color>
+</resources>
