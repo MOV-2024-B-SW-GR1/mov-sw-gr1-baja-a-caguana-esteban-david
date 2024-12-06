@@ -1,6 +1,8 @@
 package com.example.sw2024bgr1_edbc
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +19,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+//        connect UI with logic(btn)
+        val btn = findViewById<Button>(R.id.btn_lifeCycle)
+        btn.setOnClickListener{
+            startNewActivity(ALifeCycle::class.java)
+        }
+    }
+
+    fun startNewActivity(clase:Class<*>){
+        startActivity(Intent(this, clase))
     }
 }

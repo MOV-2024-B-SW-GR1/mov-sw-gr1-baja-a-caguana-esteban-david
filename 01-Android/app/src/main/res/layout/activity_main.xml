@@ -5,21 +5,29 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_color"
     android:rotationY="10"
     tools:context=".MainActivity">
-
     <TextView
-        android:id="@+id/color"
+        android:id="@+id/text_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/msg_text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        android:text="@string/greeting"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/msg_color"
+        />
 
+    <Button
+        android:id="@+id/btn_lifeCycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintTop_toTopOf="@+id/text_test"
+        app:layout_constraintBottom_toBottomOf="@+id/text_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_test"
+        android:layout_marginRight="30dp"
+/>
 </androidx.constraintlayout.widget.ConstraintLayout>

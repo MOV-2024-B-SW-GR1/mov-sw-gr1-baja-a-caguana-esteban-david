@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">sw2024bgr1_edbc</string>
     <string name="greeting">Hello Friends</string>
-    <string name="greeting_color">#B4700B</string>
+    <color name="greeting_color">#B4700B</color>
 </resources>
