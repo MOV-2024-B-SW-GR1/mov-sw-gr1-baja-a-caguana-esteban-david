@@ -18,10 +18,10 @@ data class VideoJuego(
 // Clase Actualizacion
 data class Actualizacion(
     val id: Int,                // Entero: Identificador único
-    val version: String,        // String: Versión de la actualización
-    val tamaño: Double,         // Decimal: Tamaño en GB
-    val fechaPublicacion: LocalDate, // Fecha: Fecha de la actualización
-    val esObligatoria: Boolean
+    var version: String,        // String: Versión de la actualización
+    var tamaño: Double,         // Decimal: Tamaño en GB
+    var fechaPublicacion: LocalDate, // Fecha: Fecha de la actualización
+    var esObligatoria: Boolean
 )
 
 
@@ -45,43 +45,20 @@ fun showMenu() {
         printMenuOptions()
         val opcion = readLine()?.toIntOrNull()
         cargarVideoJuegos()
+        cargarActualizaciones()
         when (opcion) {
-            1 -> {
-                crearVideoJuego()
-                println("✅ --------------------------------------- 🎮\n")
-            }
-            2 -> {
-                consultarVideoJuegos()
-            }
-            3 -> {
-                actualizarVideoJuego()
-                println("✅ --------------------------------------- ✏️\n")
-            }
-
-            4 -> {
-                eliminarVideoJuego()
-            }
-
-            5 -> {
-                println("✅ --------------------------------------- 🆕\n")
-            }
-
-            6 -> {
-                println("✅ --------------------------------------- 📋\n")
-            }
-
-            7 -> {
-                println("✅ --------------------------------------- 🛠️\n")
-            }
-
-            8 -> {
-
-            }
+            1 -> crearVideoJuego()
+            2 -> consultarVideoJuegos()
+            3 -> actualizarVideoJuego()
+            4 -> eliminarVideoJuego()
+            5 -> crearActualizacion()
+            6 -> consultarActualizacionesDeVideoJuego()
+            7 -> actualizarActualizacion()
+            8 -> eliminarActualizacion()
             9 -> {
                 println("👋 Cerrando el programa... ¡Hasta luego!")
                 break
             }
-
             else -> println("⚠️ Opción no válida. Por favor, intente de nuevo.")
         }
     }
@@ -93,9 +70,6 @@ fun main() {
 }
 
 // GAMES CRUD
-
-
-
 fun crearVideoJuego() {
     println("\n\t🆕 Crear VideoJuego 🎮")
     print("Ingrese el nombre del VideoJuego: ")
@@ -133,14 +107,9 @@ fun consultarVideoJuegos() {
 
 fun actualizarVideoJuego() {
     println("\n\t✏️ Actualizar VideoJuego 🎮")
-    print("Ingrese el título del VideoJuego que desea actualizar: ")
-    val titulo = readLine()?.trim()
 
-    val juego = videoJuegos.find { it.titulo.equals(titulo, ignoreCase = true) }
-    if (juego == null) {
-        println("⚠️ No se encontró un VideoJuego con el título especificado.")
-        return
-    }
+    val juego = obtenerVideoJuegoPorTitulo() ?: return
+
     println("\n🎮 VideoJuego actual:\n $juego")
 
     print("Ingrese el nuevo nombre del Juego (o deje en blanco para no cambiar): ")
@@ -167,6 +136,84 @@ fun eliminarVideoJuego() {
         guardarVideoJuegos()
     } else {
         println("⚠️ No se encontró el VideoJuego especificado.")
+    }
+}
+
+fun obtenerVideoJuegoPorTitulo(): VideoJuego? {
+    print("Ingrese el Nombre del VideoJuego: ")
+    val tituloJuego = readLine()?.trim()
+
+    return videoJuegos.find { it.titulo.equals(tituloJuego, ignoreCase = true) }.also {
+        if (it == null) println("⚠️ No se encontró un VideoJuego con el título especificado.")
+    }
+}
+
+// ACTUALIZACIONES CRUD
+
+fun crearActualizacion() {
+    println("\n\t🆕 Crear Actualización 🎮")
+    val juego = obtenerVideoJuegoPorTitulo() ?: return
+    print("Ingrese la versión de la actualización: ")
+    val version = readLine() ?: return println("⚠️ Versión inválida.")
+
+    print("Ingrese el tamaño de la actualización (GB): ")
+    val tamaño = readLine()?.toDoubleOrNull() ?: return println("⚠️ Tamaño inválido.")
+
+    print("¿Es obligatoria? (sí/no): ")
+    val esObligatoria = readLine()?.trim()?.lowercase() == "sí"
+
+    val nuevaActualizacion = Actualizacion(generarIdUnico(), version, tamaño, LocalDate.now(), esObligatoria)
+    juego.actualizaciones.add(nuevaActualizacion)  // Agregamos la actualización al videojuego correspondiente
+    println("\n✅ Actualización creada exitosamente para el VideoJuego '${juego.titulo}':\n $nuevaActualizacion")
+    guardarActualizaciones()
+}
+
+fun consultarActualizacionesDeVideoJuego() {
+    println("\n\t🔍 Consultar Actualizaciones de un VideoJuego 🎮")
+    val juego = obtenerVideoJuegoPorTitulo() ?: return
+    if (juego.actualizaciones.isEmpty()) {
+        println("⚠️ El VideoJuego '${juego.titulo}' no tiene actualizaciones registradas.")
+    } else {
+        println("\nActualizaciones de ${juego.titulo}:")
+        juego.actualizaciones.forEach { println(it) }
+    }
+}
+
+fun actualizarActualizacion() {
+    val juego = obtenerVideoJuegoPorTitulo() ?: return
+    println("\nActualizaciones disponibles para ${juego.titulo}:")
+    juego.actualizaciones.forEach { println(it) }
+    print("\nIngrese la versión de la actualización que desea modificar: ")
+    val version = readLine()?.trim()
+    val actualizacion = juego.actualizaciones.find { it.version.equals(version, ignoreCase = true) }
+    if (actualizacion == null) {
+        println("⚠️ No se encontró una actualización con la versión especificada.")
+        return
+    }
+    print("Ingrese el nuevo tamaño (o deje en blanco para no cambiar): ")
+    val nuevoTamaño = readLine()?.toDoubleOrNull()
+    if (nuevoTamaño != null) actualizacion.tamaño = nuevoTamaño
+    print("¿Es obligatoria? (sí/no): ")
+    val esObligatoria = readLine()?.trim()?.lowercase() == "sí"
+    actualizacion.esObligatoria = esObligatoria
+    actualizacion.fechaPublicacion = LocalDate.now()
+    println("\n✅ Actualización modificada exitosamente:\n $actualizacion")
+    guardarActualizaciones()
+}
+
+
+fun eliminarActualizacion() {
+    val juego = obtenerVideoJuegoPorTitulo() ?: return
+    println("\nActualizaciones disponibles para '${juego.titulo}':")
+    juego.actualizaciones.forEach { println(it) }
+    print("\nIngrese la versión de la actualización que desea eliminar: ")
+    val version = readLine()?.trim()
+    val eliminado = juego.actualizaciones.removeIf { it.version.equals(version, ignoreCase = true) }
+    if (eliminado) {
+        println("✅ Actualización eliminada exitosamente.")
+        guardarActualizaciones()
+    } else {
+        println("⚠️ No se encontró la actualización especificada.")
     }
 }
 
