@@ -1,4 +1,5 @@
 package org.example
+
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -13,7 +14,12 @@ data class VideoJuego(
     var fechaLanzamiento: LocalDate, // Fecha: Fecha de lanzamiento
     var disponible: Boolean,    // Booleano: Indica si está disponible
     val actualizaciones: MutableList<Actualizacion> // Relación uno a muchos
-)
+
+) {
+    override fun toString(): String {
+        return "VideoJuego(disponible=$disponible, fechaLanzamiento=$fechaLanzamiento, precio=$precio, titulo='$titulo', id=$id)"
+    }
+}
 
 // Clase Actualizacion
 data class Actualizacion(
@@ -59,6 +65,7 @@ fun showMenu() {
                 println("👋 Cerrando el programa... ¡Hasta luego!")
                 break
             }
+
             else -> println("⚠️ Opción no válida. Por favor, intente de nuevo.")
         }
     }
@@ -79,7 +86,7 @@ fun crearVideoJuego() {
     print("Ingrese el precio del VideoJuego: ")
     val precio = readLine()?.toDoubleOrNull() ?: return println("⚠️ Precio inválido.")
 
-    val nuevoJuego = VideoJuego(generarIdUnico(), nombre, precio, LocalDate.now() , true,mutableListOf())
+    val nuevoJuego = VideoJuego(generarIdUnico(), nombre, precio, LocalDate.now(), true, mutableListOf())
     videoJuegos.add(nuevoJuego)
     println("\n✅ VideoJuego creado exitosamente:\n $nuevoJuego")
     guardarVideoJuegos()
