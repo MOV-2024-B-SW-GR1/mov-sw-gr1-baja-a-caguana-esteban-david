@@ -10,13 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Sw2024bgr1_edbc"
+        android:theme="@style/Theme.DogGoApp"
         tools:targetApi="31">
         <activity
-            android:name=".BListView"
+            android:name=".ListWalkers"
             android:exported="false" />
         <activity
-            android:name=".ALifeCycle"
+            android:name=".Confirmacion"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Reservar"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
