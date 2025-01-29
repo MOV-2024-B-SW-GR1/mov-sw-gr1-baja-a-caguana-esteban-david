@@ -18,14 +18,14 @@ class VideoGameAdapter(
     // ViewHolder interno que enlaza los datos al diseño del ítem
     inner class VideoGameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.nameTextView)
-//        private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
+        private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
         private val editButton: ImageButton = itemView.findViewById(R.id.editVideoGameButton)
         private val deleteButton: ImageButton = itemView.findViewById(R.id.deleteVideoGameButton)
         private val detailsButton: ImageButton = itemView.findViewById(R.id.viewVideoGameButton)
 
         fun bind(videoGame: VideoGame) {
             titleTextView.text = videoGame.titulo
-//            priceTextView.text = "Precio: ${videoGame.precio} USD"
+            priceTextView.text = "Precio: ${videoGame.precio} USD"
 
             // Configurar listeners para los botones
             editButton.setOnClickListener { onEditClick(videoGame) }
