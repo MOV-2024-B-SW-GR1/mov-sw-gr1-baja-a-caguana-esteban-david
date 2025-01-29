@@ -43,4 +43,28 @@
         app:layout_constraintEnd_toEndOf="@id/btn_lifeCycle"
         />
 
+    <Button
+        android:id="@+id/btn_explicit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explicito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <Button
+        android:id="@+id/btn_implicit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implicit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

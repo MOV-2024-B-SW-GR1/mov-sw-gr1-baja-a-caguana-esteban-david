@@ -1,6 +1,7 @@
 package com.example.doggoapp
 
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +16,10 @@ class Confirmacion : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val btn_back = findViewById<ImageButton>(R.id.btn_back)
+        btn_back.setOnClickListener {
+            finish()
         }
     }
 }

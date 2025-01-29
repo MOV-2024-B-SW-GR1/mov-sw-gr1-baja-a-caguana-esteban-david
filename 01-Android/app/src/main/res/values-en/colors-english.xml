@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="color_en">#3ba90c </color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="color_en" tools:ignore="MissingDefaultResource">#3ba90c </color>
 </resources>

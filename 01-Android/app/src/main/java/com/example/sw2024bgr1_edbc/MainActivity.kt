@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         btn2.setOnClickListener{
             startNewActivity(BListView::class.java)
         }
+
+        val btnExplicit = findViewById<Button>(R.id.btn_explicit)
+
+        btnExplicit.setOnClickListener {
+            
+        }
     }
 
     fun startNewActivity(clase:Class<*>){

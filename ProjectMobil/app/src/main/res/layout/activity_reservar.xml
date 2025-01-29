@@ -39,7 +39,7 @@
         tools:text="lbMsg" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btn_back"
         android:layout_width="53dp"
         android:layout_height="42dp"
         android:background="@drawable/arrow"
@@ -79,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:ems="10"
+            android:hint="dd/mm/yyyy"
             android:inputType="datetime|date" />
     </LinearLayout>
 
@@ -111,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:ems="10"
+            android:hint="hh:mm"
             android:inputType="datetime|time" />
 
     </LinearLayout>
@@ -138,13 +140,11 @@
             android:textColor="#161313"
             tools:text="hourLb" />
 
-        <EditText
-            android:id="@+id/editRaza"
+        <Spinner
+            android:id="@+id/spinner_raza"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:ems="10"
-            android:inputType="text|textAutoComplete" />
+            android:layout_height="51dp"
+            />
 
     </LinearLayout>
 

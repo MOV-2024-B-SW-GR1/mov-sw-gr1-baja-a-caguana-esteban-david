@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="msg_text">Hello it's port in Spanish</string>
-    <color name="msg_color">#E91E63</color>
-    <color name="back_color">#33FF57 </color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="msg_text" tools:ignore="ExtraTranslation">Hello it's port in Spanish</string>
+    <color name="msg_color" tools:ignore="MissingDefaultResource">#E91E63</color>
+    <color name="back_color" tools:ignore="MissingDefaultResource">#33FF57 </color>
 </resources>

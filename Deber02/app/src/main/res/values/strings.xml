@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Deber2</string>
+    <string name="button_add_update">Agregar Actualizacion</string>
+    <string name="catalogo_de_videojuegos">Catalogo de Videojuegos</string>
+    <string name="add_videogame">Add Videogame</string>
+    <string name="registrar_videogame">Registrar VideoGame</string>
+    <string name="guardar">Guardar</string>
+    <string name="es_obligatoria">Es Obligatoria</string>
+    <string name="FormatDate">YYYY-MM-DD</string>
+    <string name="fecha_de_publicaci_n">Fecha de Publicación</string>
+    <string name="ingrese_el_tama_o">Ingrese el tamaño</string>
+    <string name="tama_o_gb">Tamaño (GB)</string>
+    <string name="ingrese_la_versi_n">Ingrese la versión</string>
+</resources>
