@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val btnExplicit = findViewById<Button>(R.id.btn_explicit)
 
         btnExplicit.setOnClickListener {
-            
+            startNewActivity(BListView::class.java)
         }
     }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DogGoApp</string>
+    <string name="agendar_paseo">Agendar Paseo</string>
 </resources>

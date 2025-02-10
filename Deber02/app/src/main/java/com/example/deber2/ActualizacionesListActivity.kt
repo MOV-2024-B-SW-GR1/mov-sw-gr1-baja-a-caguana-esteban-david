@@ -41,7 +41,6 @@ class ActualizacionesListActivity : AppCompatActivity() {
             intent.putExtra("videoGameId", videoGameId)
             startActivity(intent)
         }
-
         loadActualizaciones()
     }
 

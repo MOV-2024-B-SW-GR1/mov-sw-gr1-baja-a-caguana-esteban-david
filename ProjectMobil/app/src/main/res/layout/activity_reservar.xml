@@ -39,7 +39,7 @@
         tools:text="lbMsg" />
 
     <ImageButton
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_back2"
         android:layout_width="53dp"
         android:layout_height="42dp"
         android:background="@drawable/arrow"
@@ -50,118 +50,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/dateButton"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="Seleccionar fecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/labelDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Fecha:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#161313"
-            tools:text="hourLb" />
-
-        <EditText
-            android:id="@+id/editDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:ems="10"
-            android:hint="dd/mm/yyyy"
-            android:inputType="datetime|date" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hora:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#161313"
-            tools:text="hourLb" />
-
-        <EditText
-            android:id="@+id/editHourText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:ems="10"
-            android:hint="hh:mm"
-            android:inputType="datetime|time" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/labelRaza"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Raza:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#161313"
-            tools:text="hourLb" />
-
-        <Spinner
-            android:id="@+id/spinner_raza"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            />
-
-    </LinearLayout>
+        app:layout_constraintVertical_bias="0.404" />
 
     <Button
-        android:id="@+id/btn_confirm2"
-        android:layout_width="200dp"
+        android:id="@+id/timeButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5D9F6E"
-        android:backgroundTint="#5D9F6E"
-        android:text="Confirmar"
-        android:textColor="#FBF0F0"
+        android:layout_marginHorizontal="10dp"
+        android:text="Seleccionar hora"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintVertical_bias="0.537" />
+
+    <EditText
+        android:id="@+id/razaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="Raza del perro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <Button
+        android:id="@+id/reservarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:padding="15dp"
+        android:text="Reservar Paseo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
